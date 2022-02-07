@@ -30,6 +30,8 @@
 # The PID of a shell process can be retrieved with $$. Therefore a shall process can be added to a cgroup with the command: echo $$ | sudo tee /sys/fs/cgroup/net_cls/neura1/tasks
 # For ease, I suggest adding an alias to your ~/.bash_alias file for both control groups, as for example: alias cgroup1='echo $$ | sudo tee /sys/fs/cgroup/net_cls/lara1/tasks'
 
+# For each terminal window that will run a lara1/2-related process (i.e. controller node and the multiemaster discovery and sync nodes), first run the command that will add that window's shell to the correct cgroup
+
 # IMPORTANT: Run this script AFTER establishing a networking connection with both lara PCs. The entries to the routing tables can only be added if there is a connection established, and will be removed again each time a connection is unplugged
 
 
