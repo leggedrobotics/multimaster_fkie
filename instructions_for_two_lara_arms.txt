@@ -1,0 +1,12 @@
+=== Multimaster instructions for two Lara arms ===
+
+
+The multimaster package requires that in each ros network there is a discovery node and a sync node running.
+
+1. In a terminal window where you connected to one of the Lara master: run $roslaunch fkie_master_discovery master_discovery_lara1.launch
+2. In a terminal window where you are connected to the other Lara master: run $roslaunch fkie_master_discovery master_discovery_lara2.launch
+(- The only difference between these launch files is the port they use for the discovery node, since these need to be different when running on the same machine)
+3. Adapt the master_sync_lara1.launch and master_sync_lara2.launch files to specify which topics you would like to be able to receive from the other ros network(s)
+4. In a terminal window where you connected to one of the Lara master: run $roslaunch fkie_master_sync master_sync_lara1.launch
+5. In a terminal window where you are connected to the other Lara master: run $roslaunch fkie_master_sync master_sync_lara2.launch
+6. You should now be able to directly receive the specified topics from the other ros network with practically no delay
