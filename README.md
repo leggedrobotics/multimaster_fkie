@@ -30,7 +30,7 @@ You can run the following commands to setup a build from source:
 cd catkin_ws/src
 git clone https://github.com/fkie/multimaster_fkie.git multimaster
 rosdep update
-rosdep install -i --as-root pip:false --reinstall --from-paths multimaster
+rosdep install -i --as-root pip:false --reinstall --from-paths multimaster_fkie
 ```
 
 Then build all packages:
