@@ -4,7 +4,7 @@ Instructions for controlling two Lara5 arms (which are both at IP 192.168.2.13) 
 Operator PC 1 and operator PC 2 will both have nodes running which are responsible for the Lara motion control, and which will connect to the Ros master on the Lara control PCs.
 Additionally, operator PC 1 will have its own Ros master running, together with general nodes, which can communicate to the motion control nodes on the Lara Ros networks on PC 1 and PC2.
 
-# Requirements (Repeat these steps each time you reboot)
+# Requirements (Repeat these steps each time you reboot) - See the next subsections for tests for each step
 
 1. == Set up the network ==
 - PC 1 and PC 2 will be connected with each other through their ethernet ports
@@ -31,14 +31,14 @@ This is a network communication protocol to send and forward networking messages
 The connection between the Ros networks will look as follows: LARA1 <---> MAIN <---> LARA2, with LARA1 and MAIN running on one operator PC, and LARA2 running on operator PC 2
 
 On PC 1, there will be several terminal windows (referred to as "a.*") for the Lara Ros network, and several (named "b.*") in which we will start the local Ros network, which will communicate with both Lara networks
-- In terminal 1.a.1 run: $ ROS_MASTER_URI=192.168.2.13; ROS_IP=192.168.2.1
-- In terminal 1.a.2 run: $ ROS_MASTER_URI=192.168.2.13; ROS_IP=192.168.2.1
-- In terminal 1.a.3 run: $ ROS_MASTER_URI=192.168.2.13; ROS_IP=192.168.2.1
+- In terminal 1.a.1 run: $ ROS_MASTER_URI=http://192.168.2.13:11311; ROS_IP=192.168.2.1
+- In terminal 1.a.2 run: $ ROS_MASTER_URI=http://192.168.2.13:11311; ROS_IP=192.168.2.1
+- In terminal 1.a.3 run: $ ROS_MASTER_URI=http://192.168.2.13:11311; ROS_IP=192.168.2.1
 - In terminal 1.b.1-3 run: $ printenv ROS_MASTER_URI   -> verify that this returns http://localhost:11311
-- In terminal 2.a.1 run: $ ROS_MASTER_URI=192.168.2.13; ROS_IP=192.168.0.2
-- In terminal 2.a.2 run: $ ROS_MASTER_URI=192.168.2.13; ROS_IP=192.168.0.2
-- In terminal 2.a.3 run: $ ROS_MASTER_URI=192.168.2.13; ROS_IP=192.168.0.2
-- In terminal 2.a.4 run: $ ROS_MASTER_URI=192.168.2.13; ROS_IP=192.168.2.2
+- In terminal 2.a.1 run: $ ROS_MASTER_URI=http://192.168.2.13:11311; ROS_IP=192.168.0.2
+- In terminal 2.a.2 run: $ ROS_MASTER_URI=http://192.168.2.13:11311; ROS_IP=192.168.0.2
+- In terminal 2.a.3 run: $ ROS_MASTER_URI=http://192.168.2.13:11311; ROS_IP=192.168.0.2
+- In terminal 2.a.4 run: $ ROS_MASTER_URI=http://192.168.2.13:11311; ROS_IP=192.168.2.2
 * See NOTES below
 
 - In terminal 1.a.1 run: $ roslaunch fkie_master_discovery master_discovery_lara1.launch
